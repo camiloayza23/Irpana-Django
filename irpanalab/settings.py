@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     #own
     'botirpi',
-    'lugares',
+    'db',
+
 ]
 
 MIDDLEWARE = [

@@ -94,15 +94,27 @@
 
 						<!-- Get Started -->
 							<section id="cta" class="main special">
-								<header class="major">
-									<h2>¿Te gusto charlar?</h2>
-									<p> Aconsejanos a tus conocidos y ayúdanos a crecer, Irpi estará agradecido </p>
-								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button primary">Comparte</a></li>
-									</ul>
-								</footer>
+								<div class="container">
+									<form role="form">
+									  <div class="form-group">
+										<label for="nombre"> Tipo de lugar: <abbr title="required">*</abbr></label>
+										<select class="form-control form-control-lg">
+											{% for tipo in allTipos %}
+												<option value='{{tipo.id_tipos}}'> {{tipo.tipo}}</option>
+											{% endfor %}
+										</select>
+									  </div>
+								  
+									  <div class="form-group">
+										<label for="email"> Ubicacion: <abbr title="required">*</abbr></label>
+										<select class="form-control form-control-lg">
+											<option>Large select</option>
+										</select>
+									  </div>
+								  
+									  <button type="submit" class="btn btn-primary" style="margin-top: 35px;">Enviar</button>
+									</form>
+								  </div>
 							</section>
 
 					</div>
