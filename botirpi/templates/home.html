@@ -99,7 +99,7 @@
 									  <div class="form-group">
 										<label for="nombre"> Tipo de lugar: <abbr title="required">*</abbr></label>
 										<select class="form-control form-control-lg">
-											{% for tipo in allTipos %}
+											{% for tipo in tipos %}
 												<option value='{{tipo.id_tipos}}'> {{tipo.tipo}}</option>
 											{% endfor %}
 										</select>
@@ -108,7 +108,9 @@
 									  <div class="form-group">
 										<label for="email"> Ubicacion: <abbr title="required">*</abbr></label>
 										<select class="form-control form-control-lg">
-											<option>Large select</option>
+											{% for zona in zonas %}
+												<option value='{{zona.id_zonas}}'> {{zona.zona}}</option>
+											{% endfor %}
 										</select>
 									  </div>
 								  

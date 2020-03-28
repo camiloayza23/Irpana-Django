@@ -1,6 +1,8 @@
 from django.urls import path
-from . import views
+from botirpi.views import home
+from db.views import lugar_details
 
 urlpatterns = [
-    path('',views.home,name='home')
+    path('',home,name='home'),
+    path('product/',lugar_details),
 ]

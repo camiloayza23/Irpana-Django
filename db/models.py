@@ -20,16 +20,17 @@ class Tipos(models.Model):
     def __str__(self):
         return 'Tipo: ' + self.tipo
 
+class Zonas(models.Model):
+    id_zonas    = models.AutoField(primary_key=True, unique=True)
+    zona        = models.CharField(max_length=100)
+
+    def __str__(self):
+        return 'Zona: ' + self.zona
+
 class Lugar(models.Model):
-    ZONAS = (
-        ('ZS','Zona Sur'),
-        ('ZC','Zona Centro'),
-        ('ZM','Zona Miraflores'),
-        ('ZO','Zona Obrajes '),
-    )
     id_lugar    = models.AutoField(primary_key=True, unique=True)
     nombre      = models.CharField(max_length=100)
-    zona        = models.CharField(max_length=100,choices=ZONAS,default='ZA',)
+    zona        = models.ForeignKey(Zonas,on_delete=models.CASCADE)
     direccion   = models.CharField(max_length=100)
     tel         = models.IntegerField()
     highlight   = models.ForeignKey(Highlights,on_delete=models.CASCADE)
