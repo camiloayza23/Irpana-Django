@@ -1,88 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE HTML>
 
-<html>
-	<head>
-		<title>Irpaña</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<!-- stylesheets are conveniently separated into components -->
-		<link rel="stylesheet" media="all" href="{% static 'css/styles/setup.css' %}">
-		<link rel="stylesheet" media="all" href="{% static 'css/styles/says.css' %}">
-		<link rel="stylesheet" media="all" href="{% static 'css/styles/reply.css' %}">
-		<link rel="stylesheet" media="all" href="{% static 'css/styles/typing.css' %}">
-		<link rel="stylesheet" media="all" href="{% static 'css/styles/input.css' %}">
-		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}"/></noscript>
-	</head>
-	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="{% static 'botirpi/img/irpanas.png' %}" alt="" /></span>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">¿Quienes somos?</a></li>
-							<li><a href="#first"> Como usar </a></li>
-							<li><a href="#second"> Conoce a Irpi </a></li>
-							<li><a href="#cta"> Comparte </a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Introduction -->
-							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Solo se tú mismo </h2>
-										</header>
-										<p> Presentamos <i><b>Irpana</b></i>, la aplicación simula un chatbot que tiene como principal función el ayudar a turístas en la ciudad maravilla a tener la mejor expericia
-											y conocer lugares de altura, respondiendo preguntas comunes sobre horarios y tarifas en diferentes centros turísticos de la ciudad de
-											La Paz.</p>
-										<ul class="actions">
-											<li><a href="https://es.wikipedia.org/wiki/Bot_conversacional" class="button">Aprende más</a></li>
-										</ul>
-									</div>
-									<span class="image"><img src="{% static 'botirpi/img/picbot2.jpg' %}" alt="" /></span>
-								</div>
-							</section>
-
-						<!-- First Section -->
-							<section id="first" class="main special">
-								<header class="major">
-									<h2> Como usar </h2>
-								</header>
-								<ul class="features">
-									<li>
-										
-										<span class="icon solid major style1"><i class="fa fa-bomb" style="font-size:60px;"></i></span>
-										<h3>¿Tienes una idea de tu plan?</h3>
-										<p>Si estas en una zona y tienes un horario disponible para encontrar algo que hacer, anotalos y preparate para preguntar. </p>
-									</li>
-									<li>
-										<span class="icon major style3"><i class="fa fa-comment" style="font-size:60px;"></i></span>
-										<h3>Responde las preguntas y obtendrás consejos</h3>
-										<p>Irpi te hara algunas preguntas, respondelas para obtener información sobre los lugares de interés. </p>
-									</li>
-									<li>
-										<span class="icon major style5"><i class="fa fa-compass" style="font-size:60px;"></i></span>
-										<h3>Disfrútalo</h3>
-										<p>¡Conoce la ciudad maravilla en tus propios términos! Estamos para ayudarte. </p>
-									</li>
-								</ul>
-							</section>
+						{% block content %}
 
 						<!-- Second Section -->
 							<section id="second" class="main special">
@@ -95,10 +14,11 @@
 						<!-- Get Started -->
 							<section id="cta" class="main special">
 								<div class="container">
-									<form role="form">
+									<form role="form" method='post' action=''>
+										{% csrf_token %}
 									  <div class="form-group">
-										<label for="nombre"> Tipo de lugar: <abbr title="required">*</abbr></label>
-										<select class="form-control form-control-lg">
+										<label for="lugar"> Tipo de lugar: <abbr title="required">*</abbr></label>
+										<select class="form-control form-control-lg" name="select-tipo">
 											{% for tipo in tipos %}
 												<option value='{{tipo.id_tipos}}'> {{tipo.tipo}}</option>
 											{% endfor %}
@@ -106,8 +26,8 @@
 									  </div>
 								  
 									  <div class="form-group">
-										<label for="email"> Ubicacion: <abbr title="required">*</abbr></label>
-										<select class="form-control form-control-lg">
+										<label for="zona"> Ubicacion: <abbr title="required">*</abbr></label>
+										<select class="form-control form-control-lg" name="select-zona">
 											{% for zona in zonas %}
 												<option value='{{zona.id_zonas}}'> {{zona.zona}}</option>
 											{% endfor %}
@@ -121,81 +41,4 @@
 
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Desarrollado por:</h2>
-							<p> Camila Loayza Banda y Martin Laguna Jordan, alumnos de la Universidad Privada Boliviana.</p>
-						</section>
-						<section>
-							<h2>Contáctanos</h2>
-							<dl class="alt">
-								<dt>Teléfono</dt>
-								<dd>+ (591) 68845789 </dd>
-								<dt>Email</dt>
-								<dd><a href="#">informate@irpana.com</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-							</ul>
-						</section>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="{% static 'js/jquery.min.js' %}"></script>
-			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
-			<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
-			<script src="{% static 'js/browser.min.js' %}"></script>
-			<script src="{% static 'js/breakpoints.min.js' %}"></script>
-			<script src="{% static 'js/util.js' %}"></script>
-			<script src="{% static 'js/main.js' %}"></script>
-
-			<script src="{% static 'js/Bubbles.js' %}"></script>
-			<script>
-			// initialize by constructing a named function...
-			var chatWindow = new Bubbles(
-			  document.getElementById("chat"), // ...passing HTML container element...
-			  "chatWindow" // ...and name of the function as a parameter
-			)
-
-			// `.talk()` will get your bot to begin the conversation
-			chatWindow.talk(
-			  // pass your JSON/JavaScript object to `.talk()` function where
-			  // you define how the conversation between the bot and user will go
-			  {
-			    // "ice" (as in "breaking the ice") is a required conversation object
-			    // that maps the first thing the bot will say to the user
-			    ice: {
-			      // "says" defines an array of sequential bubbles
-			      // that the bot will produce
-			      says: ["¡Hey!", "¿Donde quieres ir"],
-
-			      // "reply" is an array of possible options the user can pick from
-			      // as a reply
-			      reply: [
-			        {
-			          question: "La Paz", // label for the reply option
-			          answer: "banana" // key for the next conversation object
-			        }
-			      ]
-			    }, // end required "ice" conversation object
-
-			    // another conversation object that can be queued from within
-			    // any other conversation object, including itself
-			    banana: {
-			      says: ["¡Que bien!", "Es una ciudad hermosa"],
-			      reply: [
-			        {
-			          question: "⛰️",
-			          answer: "banana"
-			        }
-			      ]
-			    } // end conversation object
-			  } // end conversation object
-			)
-			</script>
-	</body>
-</html>
+				{% endblock %}

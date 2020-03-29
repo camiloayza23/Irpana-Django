@@ -3783,3 +3783,14 @@ input, select, textarea {
 			}
 
 		}
+
+
+		.card-res {
+			margin: 0 auto;
+		  }
+
+		  .card-title {
+			margin-bottom: 1rem;
+			font-family: Raleway;
+			font-weight: 900;
+		  }

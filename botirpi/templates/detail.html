@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+						{% block content %}
+							<section id="cta" class="main">
+                                <header class="major">
+									<h2> Resultados </h2>
+								</header>
+                                {% for lugar in lugares %}
+                                {% if lugar.tipo.id_tipos == tipo_id and lugar.zona.id_zonas == zona_id %}
+								<div class="row mx-auto">
+                                    <div class="center col-md-6">
+                                    <div class="card-res">
+                                    <div class="card-img-top" >
+                                        <img style="width: 150px; height: 150px;" src= " media/{{ lugar.highlight.fotos }}" alt="Girl in a jacket"> 
+                                    </div>
+                                    <div class="card-block" style="padding-bottom: 25px;">
+                                      <h4 class="card-title text-center"> {{ lugar.nombre }} </h4>
+                                      <p class="card-text"> {{ lugar.horario }}</p>
+                                      <a href="{% url 'lugar' pk=lugar.id_lugar %}" class="btn btn-block btn-lg btn-secondary"> Highlight </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+							</section>
+
+					</div>
+						{% endblock %}
+
+			
+			

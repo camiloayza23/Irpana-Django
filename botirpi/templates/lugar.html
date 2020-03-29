@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Irpaña</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}"/></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1> {{ lugar.nombre }} </h1>
+						<p> Highlight: {{ lugar.highlight.titulo }}</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src= " /media/{{ lugar.highlight.fotos }}" alt="" /></span>
+                                <h2> <strong> {{ lugar.highlight.titulo }} </strong> </h2>
+                                <h3> {{ lugar.highlight.precio }} Bs. </h3>
+								<p> {{ lugar.highlight.descripcion }} </p>
+								<h2> <strong> Mas sobre el lugar </strong> </h2>
+                                <p><strong> Direccion: </strong> {{ lugar.direccion }} </p>
+                                <p><strong> Telefono: </strong> {{ lugar.tel }} </p>
+                                <p><strong> Email: </strong> {{ lugar.email }} </p>
+                                <p><strong> Horario de atencion: </strong> {{ lugar.horario }} </p>
+                                <i class="fa fa-facebook" style="font-size:20px;"></i> <a href=" {{ lugar.fb }} ">    Visitanos en facebook </a> <br><br>
+                                <i class="fa fa-instagram" style="font-size:20px;"></i> <a href=" {{ lugar.insta }} ">    Visitanos en instagram </a>
+							</section>
+                            <section id="cta" class="main special">
+								<header class="major">
+									<h2> Aun tienes mas preguntas?</h2>
+								</header>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="{% url 'home' %}" class="button primary">Vuelve a la pagina principal</a></li>
+									</ul>
+								</footer>
+							</section>
+					</div>
+
+				<!-- Footer -->
+                <footer id="footer">
+                    <section>
+                        <h2>Desarrollado por:</h2>
+                        <p> Camila Loayza Banda y Martin Laguna Jordan, alumnos de la Universidad Privada Boliviana.</p>
+                    </section>
+                    <section>
+                        <h2>Contáctanos</h2>
+                        <dl class="alt">
+                            <dt>Teléfono</dt>
+                            <dd>+ (591) 68845789 </dd>
+                            <dt>Email</dt>
+                            <dd><a href="#">informate@irpana.com</a></dd>
+                        </dl>
+                        <ul class="icons">
+                            <li><a href="#" class="icon brands fa fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands fa fa-facebook"><span class="label">Facebook</span></a></li>
+                        </ul>
+                    </section>
+                </footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'js/browser.min.js' %}"></script>
+        <script src="{% static 'js/breakpoints.min.js' %}"></script>
+        <script src="{% static 'js/util.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <script src="{% static 'js/Bubbles.js' %}"></script>
+
+	</body>
+</html>
